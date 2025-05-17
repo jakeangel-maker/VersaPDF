@@ -265,10 +265,6 @@ body {
     background: #e6f0ff; /* Light blue background */
 }
 
-
-
-
-
 .container {
     text-align: center;
     padding: 40px;
@@ -506,4 +502,60 @@ ul{
   .footer-col{
     width: 100%;
 }
+}
+
+/* Auth form styling for login/signup */
+.auth-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f9f9f9;
+}
+.auth-form-card {
+    background: #fff;
+    padding: 40px 32px;
+    border-radius: 14px;
+    box-shadow: 0px 6px 24px rgba(0,0,0,0.04);
+    min-width: 320px;
+    max-width: 95vw;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.auth-title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 28px;
+    color: #b7834c;
+}
+.auth-input {
+    width: 100%;
+    padding: 12px 14px;
+    margin-bottom: 18px;
+    border: 1px solid #b7834c;
+    border-radius: 7px;
+    background: #f6f6f9;
+    font-size: 15px;
+    font-family: inherit;
+}
+.auth-btn {
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 18px;
+}
+.auth-link {
+    text-align: center;
+    font-size: 14px;
+}
+.auth-link a {
+    color: #b7834c;
+    font-weight: bold;
+    text-decoration: none;
+}
+.auth-link a:hover {
+    text-decoration: underline;
+    color: #986138;
 }
