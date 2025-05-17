@@ -1,5 +1,3 @@
-let pdf; // 🔹 Declare pdf globally
-
 document.getElementById('convert-btn').addEventListener('click', function() {
     const { jsPDF } = window.jspdf;
     pdf = new jsPDF('p', 'pt', 'a4'); // 🔹 A4 Portrait Mode
