@@ -1,0 +1,187 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VersaPDF - Convert Images to PDF</title>
+    <meta name="description" content="Easily convert images to PDFs online with VersaPDF. Fast, free, and secure. No installation required!">
+    <meta name="keywords" content="Image to PDF, PDF converter, Online PDF maker">
+    <meta name="author" content="Your Name">
+    <meta name="robots" content="index, follow">
+    <meta name="google-adsense-account" content="ca-pub-5716513445996587">
+
+    <!-- External Styles & Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preload" href="https://fonts.gstatic.com/s/poppins/v22/pxiEyp8kv8JHgFVrJJfecg.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5716513445996587" crossorigin="anonymous"></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DMRBMMM46E"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-DMRBMMM46E');
+    </script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="/">
+                <img src="https://i.postimg.cc/vHNDTRWX/freepik-colorful-creative-publishing-company-logo-20250318050310i6s9.png" alt="Logo">
+            </a>
+        </div> 
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">Tools</a>
+            <a href="#about" onclick="scrollToAbout(event)">About Us</a>
+        </div> 
+        <button id="account-btn" class="account-btn">
+            <img id="account-btn-img" class="account-img" src="https://i.postimg.cc/VvwnKx7X/profile-8861091.png" alt="User Profile Image" style="display: none;" />
+        </button>
+        <div id="account-popup" class="account-popup">
+            <div class="account-header">
+                <div class="profile-pic">
+                    <img id="popup-user-image" class="profile-img" src="https://i.postimg.cc/VvwnKx7X/profile-8861091.png" alt="User Profile" />
+                </div>
+                <p id="popup-user-name">User Name</p>
+            </div>
+            <div class="account-body">
+                <button class="account-option" onclick="window.location.href='profile.html'">Profile</button>
+                <button class="account-option settings">Settings</button>
+                <button id="login-btn" class="account-option login">Login</button>
+                <button id="logout-btn" class="account-option logout">Logout</button>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <h1>Convert Images to PDF</h1>
+        <h2>Fast, Free & Secure PDF Creation</h2>
+        <div class="top-image">
+            <img src="https://i.postimg.cc/T2Nw5nrT/unrecognizable-asian-woman-sitting-cafe-working-laptop.jpg" alt="Woman working on a laptop in a cafe" />
+        </div>
+        <div class="upload-area">Drag & Drop Images Here</div>
+        <input type="file" id="file-input" style="display: none;" multiple accept="image/*">
+        <button class="btn btn-primary" id="upload-btn">Upload Images</button>
+        <div id="image-preview"
+            style="display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; justify-content: center; align-items: center; width: 100%;">
+        </div>
+        <div class="options">
+            <div class="option-container">
+                <select id="page-size" name="page-size">
+                    <option>Page Size: A4</option>
+                    <option>Letter</option>
+                    <option>Fit to Image</option>
+                </select>
+                <span class="coming-soon-badge">Coming Soon</span>
+            </div>
+            <div class="option-container">
+                <select id="orientation" name="orientation">
+                    <option>Orientation: Portrait</option>
+                    <option>Landscape</option>
+                </select>
+                <span class="coming-soon-badge">Coming Soon</span>
+            </div>
+            <div class="option-container">
+                <select id="margins" name="margins">
+                    <option>Margins: None</option>
+                    <option>Small</option>
+                    <option>Medium</option>
+                    <option>Large</option>
+                </select>
+                <span class="coming-soon-badge">Coming Soon</span>
+            </div>
+            <div class="option-container">
+                <select id="compress" name="compress">
+                    <option>Compress: Low</option>
+                    <option>Medium</option>
+                    <option>High</option>
+                </select>
+                <span class="coming-soon-badge">Coming Soon</span>
+            </div>
+        </div>
+        <div class="action-buttons">
+            <button class="btn btn-primary" id="convert-btn">Convert to PDF</button>
+            <button class="btn btn-success" id="download-btn" style="display: none;">Download PDF</button>
+            <button class="btn btn-blue">Save to Cloud</button>
+        </div>
+        <div id="loading-spinner" style="display: none; margin-top: 20px; text-align: center;">
+            <i class="fa fa-spinner fa-spin" style="font-size: 24px; color: #FF4C4C;"></i>
+            <p>Converting to PDF...</p>
+        </div>
+        <section class="about-us" id="about">
+            <div class="about-container">
+                <h1>About Us</h1>
+                <div class="about-content">
+                    <div class="text">
+                        <p>Welcome to Versa - Your one-stop solution for PDFs. We provide a fast and simple way to convert images to high-quality PDFs.</p>
+                        <p>Versa is a powerful yet easy-to-use PDF converter built to make your life easier. Whether you're uploading images from your phone or desktop, our tool instantly transforms them into high-quality PDFs with just a few clicks. Fast, secure, and totally hassle-free — perfect for students, professionals, or anyone who needs reliable PDF creation on the go.</p>
+                    </div>
+                    <div class="image">
+                        <img src="https://i.postimg.cc/25K8NJrQ/Chat-GPT-Image-May-13-2025-04-01-10-PM.png" alt="About Versa">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-col">
+                        <h4>company</h4>
+                        <ul>
+                            <li><a href="#">about us</a></li>
+                            <li><a href="#">our services</a></li>
+                            <li><a href="#">privacy policy</a></li>
+                            <li><a href="#">affiliate program</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>get help</h4>
+                        <ul>
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#">shipping</a></li>
+                            <li><a href="#">returns</a></li>
+                            <li><a href="#">order status</a></li>
+                            <li><a href="#">payment status</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>online shop</h4>
+                        <ul>
+                            <li><a href="#">watch</a></li>
+                            <li><a href="#">bag</a></li>
+                            <li><a href="#">shoes</a></li>
+                            <li><a href="#">dress</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>follow us</h4>
+                        <div class="social-links">
+                            <a href="#"><img src="https://i.postimg.cc/pXRV1ync/Asset-3.png" alt="Facebook"></a>
+                            <a href="#"><img src="https://i.postimg.cc/jqzdXyCJ/Asset-4.png" alt="YouTube"></a>
+                            <a href="#"><img src="https://i.postimg.cc/Y0frCBTx/Asset-2.png" alt="Instagram"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 VersaPDF. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Libraries needed by scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="supabaseClient.js"></script>
+    <!-- Main JS -->
+    <script src="main.js"></script>
+</body>
+</html>
